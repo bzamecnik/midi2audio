@@ -49,8 +49,10 @@ def parse_args(allow_synth=True):
     parser.add_argument('midi_file', metavar='MIDI', type=str)
     if allow_synth:
         parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
-    parser.add_argument('-s', '--sound-font', type=str)
-    parser.add_argument('-r', '--sample-rate', type=int, nargs='?', default=44100)
+    parser.add_argument('-s', '--sound-font', type=str,
+        help='path to a SF2 sound font (default path stored in ~/.fluidsynth/default_sound_font)')
+    parser.add_argument('-r', '--sample-rate', type=int, nargs='?',
+        default=44100, help='sample rate in Hz (default: 44100)')
     return parser.parse_args()
 
 def main(allow_synth=True):
