@@ -23,7 +23,7 @@ build:
 
 # PyPI production
 pypi_register:
-	twine dist/midi2audio-*.whl
+	twine register dist/midi2audio-*.whl
 
 publish:
 	twine upload dist/*
