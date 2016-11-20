@@ -1,4 +1,4 @@
-# midi2audio-fluidsynth-py
+# midi2audio
 
 Easily synthesize MIDI to audio or just play it.
 
