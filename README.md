@@ -36,7 +36,9 @@ Note that is it not a Python binding to all the FluidSynth commands. If needed c
 
 - Python 3
 - FluidSynth
-- some sound fonts
+- some sound font(s)
+
+You need at least one sound font. Normally you'd install them manually or via a package manager. `midi2audio` looks for its default sound font in `~/.fluidsynth/default_sound_font.sf2`. It can be a symlink or an actual file.
 
 ## Installation
 
@@ -59,24 +61,29 @@ pip install -e midi2audio
 
 I'd recommend adding the non-default libsndfile which supports output to FLAC and wide variety of audio formats. Otherwise only WAV, raw and a few other will be supported.
 
-```
-brew install fluidsynth --with-libsndfile
-```
-
-You need at least one sound font. Normally you'd install them manually or via a package manager. Default sound font path for this module is `~/.fluidsynth/default_sound_font.sf2`. It can be alias to an actual path.
-
-There's a script that automatically installs one basic sound font and stores its path so that it's recognized as a default sound font for this module.
+For Mac OS X we provide a script [install_fluidsynth_with_soundfonts_osx.sh](https://github.com/bzamecnik/midi2audio/blob/master/install_fluidsynth_with_soundfonts_osx.sh) to automatically install FluidSynth with libsndfile and a basic sound font ([Fluid R3 GM](http://www.musescore.org/download/fluid-soundfont.tar.gz)) and symlink it so that it's recognized as a default sound font for this module.
 
 ```
-# install some basic sound font
 ./install_fluidsynth_with_soundfonts_osx.sh
 ```
 
+Or install it manually:
+
+```
+brew install fluidsynth --with-libsndfile
+mkdir -p ~/.fluidsynth
+ln -s /path/to/my/sound_font.sf2 ~/.fluidsynth/default_sound_font.sf2
+```
+
+Check the script how to install a few additional (nice but bigger) sound fonts which are not installed by default.
+
 ## Other OSs
 
-Check you package manager and put the path of your default sound font to the file mentioned above.
+Check you package manager and link your default sound font as descibed above.
 
 ## Usage
+
+Basically you can either play a MIDI file or synthesize it to audio. FluidSynth allows non-realtime synthesis which is faster than the playback.
 
 Note that the audio format is determined from the audio file extension. The [libsoundfile](http://www.mega-nerd.com/libsndfile/) supports a lot of formats.
 
