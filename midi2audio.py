@@ -26,8 +26,11 @@ import subprocess
 
 __all__ = ['FluidSynth']
 
+DEFAULT_SOUND_FONT = '~/.fluidsynth/default_sound_font.sf2'
+DEFAULT_SAMPLE_RATE = 44100
+
 class FluidSynth():
-    def __init__(self, sound_font=None, sample_rate=44100):
+    def __init__(self, sound_font=DEFAULT_SOUND_FONT, sample_rate=DEFAULT_SAMPLE_RATE):
         self.sample_rate = sample_rate
         self.sound_font = os.path.expanduser(sound_font)
 
@@ -43,9 +46,11 @@ def parse_args(allow_synth=True):
     if allow_synth:
         parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
     parser.add_argument('-s', '--sound-font', type=str,
-        help='path to a SF2 sound font (default path stored in ~/.fluidsynth/default_sound_font)')
+        default=DEFAULT_SOUND_FONT,
+        help='path to a SF2 sound font (default: %s)' % DEFAULT_SOUND_FONT)
     parser.add_argument('-r', '--sample-rate', type=int, nargs='?',
-        default=44100, help='sample rate in Hz (default: 44100)')
+        default=DEFAULT_SAMPLE_RATE,
+        help='sample rate in Hz (default: %s)' % DEFAULT_SAMPLE_RATE)
     return parser.parse_args()
 
 def main(allow_synth=True):
