@@ -24,6 +24,8 @@ import argparse
 from os.path import expanduser
 import subprocess
 
+__all__ = ['FluidSynth']
+
 class FluidSynth():
     def __init__(self, sound_font=None, sample_rate=44100):
         self.sample_rate = sample_rate
