@@ -40,6 +40,21 @@ Note that is it not a Python binding to all the FluidSynth commands. If needed c
 
 ## Installation
 
+### pip
+
+You can install this package via pip.
+
+```
+pip install midi2audio
+```
+
+Or for development (changes in code take effect without reinstalling):
+
+```
+git clone https://github.com/bzamecnik/midi2audio
+pip install -e midi2audio
+```
+
 ### OS X
 
 I'd recommend adding the non-default libsndfile which supports output to FLAC and wide variety of audio formats. Otherwise only WAV, raw and a few other will be supported.
