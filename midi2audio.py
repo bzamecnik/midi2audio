@@ -44,21 +44,28 @@ class FluidSynth():
     def play_midi(self, midi_file):
         subprocess.call(['fluidsynth', '-i', self.sound_font, midi_file, '-r', str(self.sample_rate)])
 
-def parse_args():
+def parse_args(allow_synth=True):
     parser = argparse.ArgumentParser(description='Convert MIDI to audio via FluidSynth')
     parser.add_argument('midi_file', metavar='MIDI', type=str)
-    parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
+    if allow_synth:
+        parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
     parser.add_argument('-s', '--sound-font', type=str)
     parser.add_argument('-r', '--sample-rate', type=int, nargs='?', default=44100)
     return parser.parse_args()
 
-def main():
-    args = parse_args()
+def main(allow_synth=True):
+    args = parse_args(allow_synth)
     fs = FluidSynth(args.sound_font, args.sample_rate)
     if args.audio_file:
         fs.midi_to_audio(args.midi_file, args.audio_file)
     else:
         fs.play_midi(args.midi_file)
+
+def main_play():
+    """
+    A method for the `midiplay` entry point. It omits the audio file from args.
+    """
+    main(allow_synth=False)
 
 if __name__ == '__main__':
     main()

@@ -28,4 +28,10 @@ setup(name='midi2audio',
 
           'Operating System :: POSIX :: Linux',
           'Operating System :: MacOS :: MacOS X',
-      ])
+      ],
+      entry_points={
+          'console_scripts': [
+              'midi2audio = midi2audio:main',
+              'midiplay = midi2audio:main_play'
+          ]
+      })

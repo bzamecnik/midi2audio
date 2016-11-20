@@ -12,8 +12,11 @@ First, FluidSynth has a CLI which is not so straightforward to use. The goal was
 fluidsynth -ni sound_font.sf2 input.mid -F output.wav -r 44100
 ```
 
+vs.
+
 ```
-python fluidsynth.py input.mid output.wav
+midiplay input.mid
+midi2audio input.mid output.wav
 ```
 
 Second, we can have as easy interface scriptable in Python.
@@ -97,19 +100,21 @@ FluidSynth(sample_rate=22050)
 
 ### Command line interface
 
+A shell sugars `midi2audio` and `midiplay` are provided instead of more verbose `python -m midi2audio`.
+
 ```
 # play MIDI
-$ python fluidsynth.py input.mid
+$ midiplay input.mid
 
 # synthesize MIDI to audio
-$ python fluidsynth.py input.mid output.wav
+$ midi2audio input.mid output.wav
 
 # also to FLAC
-$ python fluidsynth.py input.mid output.flac
+$ midi2audio input.mid output.flac
 
 # custom sound font
-$ python fluidsynth.py -s sound_font.sf2 input.mid output.flac
+$ midi2audio -s sound_font.sf2 input.mid output.flac
 
 # custom sample rate
-$ python fluidsynth.py -r 22050 input.mid output.flac
+$ midi2audio -r 22050 input.mid output.flac
 ```
