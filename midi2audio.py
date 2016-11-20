@@ -64,7 +64,7 @@ def parse_args(allow_synth=True):
 def main(allow_synth=True):
     args = parse_args(allow_synth)
     fs = FluidSynth(args.sound_font, args.sample_rate)
-    if args.audio_file:
+    if allow_synth and args.audio_file:
         fs.midi_to_audio(args.midi_file, args.audio_file)
     else:
         fs.play_midi(args.midi_file)
