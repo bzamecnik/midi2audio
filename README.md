@@ -65,10 +65,10 @@ pip install -e midi2audio
 
 I'd recommend adding the non-default libsndfile which supports output to FLAC and wide variety of audio formats. Otherwise only WAV, raw and a few other will be supported.
 
-For Mac OS X we provide a script [install_fluidsynth_with_soundfonts_osx.sh](https://github.com/bzamecnik/midi2audio/blob/master/install_fluidsynth_with_soundfonts_osx.sh) to automatically install FluidSynth with libsndfile and a basic sound font ([Fluid R3 GM](http://www.musescore.org/download/fluid-soundfont.tar.gz)) and symlink it so that it's recognized as a default sound font for this module.
+For Mac OS X we provide a script [install_fluidsynth_with_soundfonts_osx.sh](https://github.com/bzamecnik/midi2audio/blob/master/install_fluidsynth_with_soundfonts_osx.sh) to automatically install FluidSynth with libsndfile and a basic sound font ([Fluid R3 GM](http://www.musescore.org/download/fluid-soundfont.tar.gz)) and symlink it so that it's recognized as a default sound font for this module. Note it it install installed via pip as another entry point.
 
 ```
-./install_fluidsynth_with_soundfonts_osx.sh
+install_fluidsynth_with_soundfonts_osx.sh
 ```
 
 Or install it manually:

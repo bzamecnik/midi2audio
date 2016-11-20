@@ -34,4 +34,7 @@ setup(name='midi2audio',
               'midi2audio = midi2audio:main',
               'midiplay = midi2audio:main_play'
           ]
-      })
+      },
+      scripts=[
+        'install_fluidsynth_with_soundfonts_osx.sh'
+      ])
