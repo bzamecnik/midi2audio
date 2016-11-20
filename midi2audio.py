@@ -1,23 +1,31 @@
 """
-Synthesizes an audio file from MIDI using some basic sound font.
-
-It's a wrapper over fluidsynth which provides a bit easier interface.
+Allows to play and synthesize MIDI to audio using a sound font via the
+FluidSynth synthesizer.
 
 Input: MIDI file
 Output: audio file (WAV, FLAC, ...) - type determined from the extension
 
 Usage in shell:
 
+$ midiplay input.mid
+
 # use some default sound font
-$ python fluidsynth.py input.mid output.flac
+$ midi2audio input.mid output.flac
+
 # use a custom sound font
-$ python fluidsynth.py -s sound_font.sf2 input.mid output.flac
+$ midi2audio -s sound_font.sf2 input.mid output.flac
 
 Usage in Python:
 
-FluidSynth('sound_font.sf2').midi_to_audio('input.mid', 'output.wav')
+from midi2audio import FluidSynth
 
-If no sound font is specified explicitly the path of a default one is searched in the `~/.fluidsynth/default_sound_font` file.
+fs = FluidSynth()
+fs.play_midi('input.mid')
+fs.midi_to_audio('input.mid', 'output.flac')
+
+FluidSynth('sound_font.sf2').midi_to_audio('input.mid', 'output.flac')
+
+Default sound font path is `~/.fluidsynth/default_sound_font.sf2`.
 """
 
 import argparse
