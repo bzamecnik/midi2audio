@@ -52,10 +52,13 @@ def parse_args():
     parser.add_argument('-r', '--sample-rate', type=int, nargs='?', default=44100)
     return parser.parse_args()
 
-if __name__ == '__main__':
+def main():
     args = parse_args()
     fs = FluidSynth(args.sound_font, args.sample_rate)
     if args.audio_file:
         fs.midi_to_audio(args.midi_file, args.audio_file)
     else:
         fs.play_midi(args.midi_file)
+
+if __name__ == '__main__':
+    main()
