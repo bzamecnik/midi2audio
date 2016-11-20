@@ -27,7 +27,7 @@ fi
 
 # let's store this sound font as default
 mkdir -p ~/.fluidsynth
-echo ${TARGET_FILE} > ~/.fluidsynth/default_sound_font
+ln -sf ${TARGET_FILE} ~/.fluidsynth/default_sound_font.sf2
 
 # TARGET_FILE="$HOME/Library/Audio/Sounds/Banks/generaluser_gs_v1.47.sf2"
 # ARCHIVE_FILE="/tmp/GeneralUser_GS_1.47.zip"

@@ -21,7 +21,7 @@ If no sound font is specified explicitly the path of a default one is searched i
 """
 
 import argparse
-from os.path import expanduser
+import os
 import subprocess
 
 __all__ = ['FluidSynth']
@@ -29,14 +29,7 @@ __all__ = ['FluidSynth']
 class FluidSynth():
     def __init__(self, sound_font=None, sample_rate=44100):
         self.sample_rate = sample_rate
-        if sound_font is not None:
-            self.sound_font = sound_font
-        else:
-            try:
-                with(open(expanduser('~/.fluidsynth/default_sound_font'))) as f:
-                    self.sound_font = f.readline().strip()
-            except Exception as ex:
-                raise RuntimeError('Default sound font is not defined, you have to specify it explicitly') from ex
+        self.sound_font = os.path.expanduser(sound_font)
 
     def midi_to_audio(self, midi_file, audio_file):
         subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)])
