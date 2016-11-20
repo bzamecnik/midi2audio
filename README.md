@@ -63,14 +63,14 @@ I'd recommend adding the non-default libsndfile which supports output to FLAC an
 brew install fluidsynth --with-libsndfile
 ```
 
-You need at least one sound font. Normally you'd install them manually or via a package manager. There's a script that automatically installs one basic sound font and stores its path so that it's recognized as a default sound font for this module.
+You need at least one sound font. Normally you'd install them manually or via a package manager. Default sound font path for this module is `~/.fluidsynth/default_sound_font.sf2`. It can be alias to an actual path.
+
+There's a script that automatically installs one basic sound font and stores its path so that it's recognized as a default sound font for this module.
 
 ```
-# install some basic soundfont
+# install some basic sound font
 ./install_fluidsynth_with_soundfonts_osx.sh
 ```
-
-Note this modules stores the path to the default sound font in the `~/.fluidsynth/default_sound_font` file.
 
 ## Other OSs
 
