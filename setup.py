@@ -1,13 +1,14 @@
 from setuptools import setup
 
 setup(name='midi2audio',
-      version='0.1',
+      version='0.1.1',
       description='Easy to use MIDI to audio or playback via FluidSynth',
       url='https://github.com/bzamecnik/midi2audio',
       author='Bohumir Zamecnik',
       author_email='bohumir.zamecnik@gmail.com',
       license='MIT',
       zip_safe=False,
+      py_modules=['midi2audio'],
       setup_requires=['setuptools-markdown'],
       long_description_markdown_filename='README.md',
       # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
