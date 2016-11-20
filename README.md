@@ -40,7 +40,7 @@ Note that is it not a Python binding to all the FluidSynth commands. If needed c
 
 - Python 3
 - FluidSynth
-- some sound font(s)
+- some [sound font(s)](https://sourceforge.net/p/fluidsynth/wiki/SoundFont/)
 
 You need at least one sound font. Normally you'd install them manually or via a package manager. `midi2audio` looks for its default sound font in `~/.fluidsynth/default_sound_font.sf2`. It can be a symlink or an actual file.
 
@@ -144,3 +144,16 @@ $ midi2audio -s sound_font.sf2 input.mid output.flac
 # custom sample rate
 $ midi2audio -r 22050 input.mid output.flac
 ```
+
+## About
+
+- Author: Bohumír Zámečník ([@bzamecnik](http://twitter.com/bzamecnik))
+- License: MIT, see the [LICENSE](LICENSE) file
+
+### Shoulders of giants
+
+Thanks to the authors of FluidSynth for a nice command-line MIDI synthesizer!
+
+### Support the project
+
+Need some consulting or coding work regarding audio processing, machine learning or big data? Drop me a message via [email](mailto:bohumir.zamecnik@gmail.com?subject=Work+inquiry+-+based+on+midi2audio) or [LinkedIn](https://www.linkedin.com/in/bohumirzamecnik). Or just say hello :).
