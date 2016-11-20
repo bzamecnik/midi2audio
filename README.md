@@ -1,5 +1,9 @@
 # midi2audio
 
+[![PyPI version](https://img.shields.io/pypi/v/midi2audio.svg)](https://pypi.python.org/pypi/midi2audio)
+![Supported Python versions](https://img.shields.io/pypi/pyversions/midi2audio.svg)
+![License](https://img.shields.io/pypi/l/midi2audio.svg)
+
 Easily synthesize MIDI to audio or just play it.
 
 It provides a Python and command-line interface to the [FluidSynth](http://www.fluidsynth.org/) synthesizer to make it easy to use and suitable for scripting and batch processing. In contrast, most MIDI processing software is GUI-based.
