@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='midi2audio',
       version='0.1',
       description='Easy to use MIDI to audio or playback via FluidSynth',
-      url='https://github.com/bzamecnik/midi2audio-fluidsynth-py',
+      url='https://github.com/bzamecnik/midi2audio',
       author='Bohumir Zamecnik',
       author_email='bohumir.zamecnik@gmail.com',
       license='MIT',
