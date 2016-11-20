@@ -65,7 +65,7 @@ Note that the audio format is determined from the audio file extension. The [lib
 ### Python
 
 ```
-from midi2audio_fluidsynth import FluidSynth
+from midi2audio import FluidSynth
 ```
 
 Play MIDI:
