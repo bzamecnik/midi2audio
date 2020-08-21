@@ -13,7 +13,7 @@ It provides a Python and command-line interface to the [FluidSynth](http://www.f
 First, FluidSynth has a CLI which is not so straightforward to use. The goal was to make it easy to use as possible by making some parameters implicit.
 
 ```
-fluidsynth -ni sound_font.sf2 input.mid -F output.wav -r 44100
+fluidsynth -ni -F output.wav -r 44100 sound_font.sf2 input.mid
 ```
 
 vs.
