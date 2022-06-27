@@ -56,11 +56,9 @@ def parse_args(allow_synth=True):
     parser.add_argument('midi_file', metavar='MIDI', type=str)
     if allow_synth:
         parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
-    parser.add_argument('-s', '--sound-font', type=str,
-                        default=DEFAULT_SOUND_FONT,
+    parser.add_argument('-s', '--sound-font', type=str, default=DEFAULT_SOUND_FONT,
                         help='path to a SF2 sound font (default: %s)' % DEFAULT_SOUND_FONT)
-    parser.add_argument('-r', '--sample-rate', type=int, nargs='?',
-                        default=DEFAULT_SAMPLE_RATE,
+    parser.add_argument('-r', '--sample-rate', type=int, nargs='?', default=DEFAULT_SAMPLE_RATE,
                         help='sample rate in Hz (default: %s)' % DEFAULT_SAMPLE_RATE)
     return parser.parse_args()
 
@@ -73,13 +71,11 @@ def main(allow_synth=True):
     else:
         fs.play_midi(args.midi_file)
 
-
 def main_play():
     """
     A method for the `midiplay` entry point. It omits the audio file from args.
     """
     main(allow_synth=False)
-
 
 if __name__ == '__main__':
     main()
