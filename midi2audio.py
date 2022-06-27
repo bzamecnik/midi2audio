@@ -50,18 +50,17 @@ class FluidSynth():
     def play_midi(self, midi_file):
         subprocess.call(['fluidsynth', '-i', self.sound_font, midi_file, '-r', str(self.sample_rate)])
 
-
 def parse_args(allow_synth=True):
     parser = argparse.ArgumentParser(description='Convert MIDI to audio via FluidSynth')
     parser.add_argument('midi_file', metavar='MIDI', type=str)
     if allow_synth:
         parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
-    parser.add_argument('-s', '--sound-font', type=str, 
-                        default=DEFAULT_SOUND_FONT,
-                        help='path to a SF2 sound font (default: %s)' % DEFAULT_SOUND_FONT)
-    parser.add_argument('-r', '--sample-rate', type=int, nargs='?', 
-                        default=DEFAULT_SAMPLE_RATE,
-                        help='sample rate in Hz (default: %s)' % DEFAULT_SAMPLE_RATE)
+    parser.add_argument('-s', '--sound-font', type=str,
+        default=DEFAULT_SOUND_FONT,
+        help='path to a SF2 sound font (default: %s)' % DEFAULT_SOUND_FONT)
+    parser.add_argument('-r', '--sample-rate', type=int, nargs='?',
+        default=DEFAULT_SAMPLE_RATE,
+        help='sample rate in Hz (default: %s)' % DEFAULT_SAMPLE_RATE)
     return parser.parse_args()
 
 def main(allow_synth=True):
