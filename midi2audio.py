@@ -44,12 +44,9 @@ class FluidSynth():
         self.sound_font = os.path.expanduser(sound_font)
 
     def midi_to_audio(self, midi_file, audio_file, no_log=True):
-        if no_log:
-            subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file,
-                             '-F', audio_file, '-r', str(self.sample_rate)], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
-        else:
-            subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file,
-                             '-F', audio_file, '-r', str(self.sample_rate)])
+        stdout = subprocess.DEVNULL if no_log else None
+        stderr = subprocess.DEVNULL if no_log else None
+        subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)], stderr=stderr, stdout=stdout)
 
     def play_midi(self, midi_file):
         subprocess.call(['fluidsynth', '-i', self.sound_font,
@@ -57,8 +54,7 @@ class FluidSynth():
 
 
 def parse_args(allow_synth=True):
-    parser = argparse.ArgumentParser(
-        description='Convert MIDI to audio via FluidSynth')
+    parser = argparse.ArgumentParser(description='Convert MIDI to audio via FluidSynth')
     parser.add_argument('midi_file', metavar='MIDI', type=str)
     if allow_synth:
         parser.add_argument('audio_file', metavar='AUDIO', type=str, nargs='?')
