@@ -37,7 +37,6 @@ __all__ = ['FluidSynth']
 DEFAULT_SOUND_FONT = '~/.fluidsynth/default_sound_font.sf2'
 DEFAULT_SAMPLE_RATE = 44100
 
-
 class FluidSynth():
     def __init__(self, sound_font=DEFAULT_SOUND_FONT, sample_rate=DEFAULT_SAMPLE_RATE):
         self.sample_rate = sample_rate
@@ -49,8 +48,7 @@ class FluidSynth():
         subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)], stderr=stderr, stdout=stdout)
 
     def play_midi(self, midi_file):
-        subprocess.call(['fluidsynth', '-i', self.sound_font,
-                        midi_file, '-r', str(self.sample_rate)])
+        subprocess.call(['fluidsynth', '-i', self.sound_font, midi_file, '-r', str(self.sample_rate)])
 
 
 def parse_args(allow_synth=True):
