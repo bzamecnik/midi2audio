@@ -42,7 +42,7 @@ class FluidSynth():
         self.sample_rate = sample_rate
         self.sound_font = os.path.expanduser(sound_font)
 
-    def midi_to_audio(self, midi_file, audio_file):
+    def midi_to_audio(self, midi_file: str, audio_file: str):
         subprocess.call(['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)])
 
     def play_midi(self, midi_file):
