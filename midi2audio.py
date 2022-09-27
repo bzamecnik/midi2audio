@@ -42,7 +42,7 @@ class FluidSynth():
         self.sample_rate = sample_rate
         self.sound_font = os.path.expanduser(sound_font)
 
-    def midi_to_audio(self, midi_file, audio_file, verbose=True):
+    def midi_to_audio(self, midi_file: str, audio_file: str, verbose=True):
         if verbose:
             stdout = None
         else:
