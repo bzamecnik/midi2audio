@@ -110,9 +110,6 @@ Synthesize MIDI to audio:
 fs = FluidSynth()
 fs.midi_to_audio('input.mid', 'output.wav')
 
-# optional third argument to control gain (defaults to 0.2)
-fs.midi_to_audio('input.mid', 'output.wav', gain=0.75)
-
 # FLAC, a lossless codec, is supported as well (and recommended to be used)
 fs.midi_to_audio('input.mid', 'output.flac')
 ```
@@ -125,6 +122,9 @@ FluidSynth('sound_font.sf2')
 
 # use a custom sample rate
 FluidSynth(sample_rate=22050)
+
+# use a custom gain (default is 0.2)
+FluidSynth(gain=0.75)
 ```
 
 ### Command line interface
