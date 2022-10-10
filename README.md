@@ -110,6 +110,9 @@ Synthesize MIDI to audio:
 fs = FluidSynth()
 fs.midi_to_audio('input.mid', 'output.wav')
 
+# optional third argument to control gain (defaults to 0.2)
+fs.midi_to_audio('input.mid', 'output.wav', gain=0.75)
+
 # FLAC, a lossless codec, is supported as well (and recommended to be used)
 fs.midi_to_audio('input.mid', 'output.flac')
 ```
