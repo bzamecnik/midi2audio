@@ -47,10 +47,15 @@ class FluidSynth():
             stdout = None
         else:
             stdout = subprocess.DEVNULL
-        subprocess.call(
-            ['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)], 
-            stdout=stdout, 
-        )
+        try:
+            subprocess.call(
+                ['fluidsynth', '-ni', self.sound_font, midi_file, '-F', audio_file, '-r', str(self.sample_rate)], 
+                stdout=stdout, 
+            )
+        except FileNotFoundError:
+            print('File not found. Did you install fluidsynth from https://www.fluidsynth.org/ ?')
+            print()
+            raise
 
     def play_midi(self, midi_file):
         subprocess.call(['fluidsynth', '-i', self.sound_font, midi_file, '-r', str(self.sample_rate)])
